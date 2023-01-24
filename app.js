@@ -53,7 +53,7 @@ const game = (() => {
   });
 
   const squaresArr = Array.prototype.slice.call(domElems.squares);
-  addEventToNodes("click", domElems.squares, () => {
+  addEventToNodes("click", domElems.squares, function () {
     gameBoard[squaresArr.indexOf(this)] = player1.marker;
     displayBoard();
   });
