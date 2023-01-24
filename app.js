@@ -27,7 +27,7 @@ const addEventToNodes = (evn, nodelst, func) => {
 
 const gameBoard = (() => [" ", " ", " ", " ", " ", " ", " ", " ", " "])();
 const displayBoard = () => {
-  for (let i = 0; i < gameBoard.length; i++) {
+  for (let i = 0; i < gameBoard.length; i += 1) {
     domElems.markers[i].innerText = gameBoard[i];
   }
 };
@@ -50,12 +50,10 @@ const game = (() => {
         player2 = Player("Computer", "O");
       }
     }
-    console.log("player1", player1);
-    console.log("player2", player2);
   });
 
   const squaresArr = Array.prototype.slice.call(domElems.squares);
-  addEventToNodes("click", domElems.squares, function () {
+  addEventToNodes("click", domElems.squares, () => {
     gameBoard[squaresArr.indexOf(this)] = player1.marker;
     displayBoard();
   });
