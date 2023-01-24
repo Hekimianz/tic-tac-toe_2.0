@@ -123,3 +123,87 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/* ************* End of CSS Reset ************* */
+html {
+  height: 100vh;
+}
+
+body {
+  font-size: 2em;
+  height: 100%;
+}
+
+/* Game Board  */
+#main-cont {
+  padding-top: 50%;
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  height: 50%;
+}
+
+.game-square {
+  justify-self: stretch;
+  align-self: stretch;
+  cursor: pointer;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+}
+
+#square-topLeft {
+  border-top: none;
+  border-left: none;
+}
+
+#square-topMid {
+  border-top: none;
+}
+
+#square-topRight {
+  border-top: none;
+  border-right: none;
+}
+
+#square-midLeft {
+  border-left: none;
+}
+
+#square-midRight {
+  border-right: none;
+}
+
+#square-botLeft {
+  border-left: none;
+  border-bottom: none;
+}
+
+#square-botMid {
+  border-bottom: none;
+}
+
+#square-botRight {
+  border-right: none;
+  border-bottom: none;
+}
+
+/* Game start form */
+
+#game-start {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+#input-name {
+  width: 7rem;
+}
+
+input {
+  margin-top: 1.5em;
+}

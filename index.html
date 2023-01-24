@@ -8,6 +8,48 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <section id="main-cont">
+      <div class="game-square" id="square-topLeft">
+        <span class="marker"></span>
+      </div>
+      <div class="game-square" id="square-topMid">
+        <span class="marker"></span>
+      </div>
+      <div class="game-square" id="square-topRight">
+        <span class="marker"></span>
+      </div>
+      <div class="game-square" id="square-midLeft">
+        <span class="marker"></span>
+      </div>
+      <div class="game-square" id="square-midMid">
+        <span class="marker"></span>
+      </div>
+      <div class="game-square" id="square-midRight">
+        <span class="marker"></span>
+      </div>
+      <div class="game-square" id="square-botLeft">
+        <span class="marker"></span>
+      </div>
+      <div class="game-square" id="square-botMid">
+        <span class="marker"></span>
+      </div>
+      <div class="game-square" id="square-botRight">
+        <span class="marker"></span>
+      </div>
+    </section>
+    <section id="game-start">
+      <h1>Welcome! Enter your name and choose a marker.</h1>
+      <form>
+        <input type="text" placeholder="Enter name:" id="input-name" />
+        <div>
+          <label for="x">X: </label>
+          <input type="radio" id="input-markerX" name="marker" value="x" />
+          <label for="o">O: </label>
+          <input type="radio" id="input-markerO" name="marker" value="o" />
+        </div>
+        <button type="button" id="btn-start">Play!</button>
+      </form>
+    </section>
     <script src="app.js"></script>
   </body>
 </html>
