@@ -114,10 +114,12 @@ const game = (() => {
     const xWins = function () {
       if (player1.marker === "X") {
         domElems.gameEndSpan.innerText = `${player1.name} Wins!`;
-        domElems.gameEnd.style.background = "#faff61be";
+        domElems.gameEnd.style.background = "#9093fe72";
+        domElems.gameEnd.style.color = "white";
       } else {
         domElems.gameEndSpan.innerText = "You lose!";
-        domElems.gameEnd.style.background = "#FFDEABbe";
+        domElems.gameEnd.style.background = "#FFDEAB9e";
+        domElems.gameEnd.style.color = "#9093fe";
       }
       domElems.gameEnd.style.display = "flex";
       delEventFromNodes("click", domElems.squares, check);
@@ -125,10 +127,12 @@ const game = (() => {
     const oWins = function () {
       if (player1.marker === "O") {
         domElems.gameEndSpan.innerText = `${player1.name} Wins!`;
-        domElems.gameEnd.style.background = "#faff61be";
+        domElems.gameEnd.style.background = "#9093fe72";
+        domElems.gameEnd.style.color = "white";
       } else {
         domElems.gameEndSpan.innerText = "You lose!";
-        domElems.gameEnd.style.background = "#FFDEABbe";
+        domElems.gameEnd.style.background = "#FFDEAB9e";
+        domElems.gameEnd.style.color = "#9093fe";
       }
       domElems.gameEnd.style.display = "flex";
     };
