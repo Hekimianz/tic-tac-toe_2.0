@@ -5,23 +5,23 @@ const domElems = (() => {
   const btnStart = document.getElementById("btn-start");
   const form = document.getElementById("game-start");
   const inputName = document.getElementById("input-name");
-  const inputMarkerX = document.getElementById("input-markerX");
-  const inputMarkerO = document.getElementById("input-markerO");
   const gameEnd = document.getElementById("game-end");
   const gameEndSpan = document.getElementById("game-end-span");
   const btnRestart = document.getElementById("btn-restart");
+  const selectorX = document.getElementById("selectX");
+  const selectorO = document.getElementById("selectO");
   return {
     board,
     squares,
     markers,
     btnStart,
     inputName,
-    inputMarkerO,
-    inputMarkerX,
     form,
     gameEnd,
     gameEndSpan,
     btnRestart,
+    selectorO,
+    selectorX,
   };
 })();
 const addEventToNodes = (evn, nodelst, func) => {
@@ -49,18 +49,37 @@ const Player = (name, marker) => ({ name, marker });
 
 // eslint-disable-next-line no-unused-vars
 const game = (() => {
+  let selectedMarker;
+  domElems.selectorO.addEventListener("click", () => {
+    domElems.selectorO.classList.add("selected");
+    domElems.selectorX.classList.remove("selected");
+    domElems.selectorO.classList.remove("unselected");
+    domElems.selectorO.classList.remove("markSelector");
+    domElems.selectorX.classList.add("unselected");
+    domElems.selectorX.classList.add("markSelector");
+    selectedMarker = "O";
+  });
+  domElems.selectorX.addEventListener("click", () => {
+    domElems.selectorX.classList.add("selected");
+    domElems.selectorO.classList.remove("selected");
+    domElems.selectorX.classList.remove("unselected");
+    domElems.selectorX.classList.remove("markSelector");
+    domElems.selectorO.classList.add("unselected");
+    domElems.selectorO.classList.add("markSelector");
+    selectedMarker = "X";
+  });
   let player1;
   let player2;
   let currentPlayer;
   domElems.btnStart.addEventListener("click", () => {
-    if (domElems.inputName.value !== "") {
+    if (domElems.inputName.value !== "" && selectedMarker !== undefined) {
       domElems.board.style.display = "grid";
       domElems.btnRestart.style.display = "initial";
       domElems.form.style.display = "none";
-      if (domElems.inputMarkerO.checked) {
+      if (selectedMarker === "O") {
         player1 = Player(domElems.inputName.value, "O");
         player2 = Player("Computer", "X");
-      } else if (domElems.inputMarkerX.checked) {
+      } else if (selectedMarker === "X") {
         player1 = Player(domElems.inputName.value, "X");
         player2 = Player("Computer", "O");
       }
@@ -95,8 +114,10 @@ const game = (() => {
     const xWins = function () {
       if (player1.marker === "X") {
         domElems.gameEndSpan.innerText = `${player1.name} Wins!`;
+        domElems.gameEnd.style.background = "#FAFF61";
       } else {
         domElems.gameEndSpan.innerText = "You lose!";
+        domElems.gameEnd.style.background = "#FFDEAB";
       }
       domElems.gameEnd.style.display = "initial";
       delEventFromNodes("click", domElems.squares, check);
@@ -104,8 +125,10 @@ const game = (() => {
     const oWins = function () {
       if (player1.marker === "O") {
         domElems.gameEndSpan.innerText = `${player1.name} Wins!`;
+        domElems.gameEnd.style.background = "#FAFF61";
       } else {
         domElems.gameEndSpan.innerText = "You lose!";
+        domElems.gameEnd.style.background = "#FFDEAB";
       }
       domElems.gameEnd.style.display = "initial";
     };

@@ -127,6 +127,9 @@ table {
 /* ************* End of CSS Reset ************* */
 html {
   height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-image: url("background.png");
+  background-size: contain;
 }
 
 body {
@@ -148,11 +151,13 @@ body {
   justify-self: stretch;
   align-self: stretch;
   cursor: pointer;
-  border: 1px solid black;
+  border: 1px solid #9093fe;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 130px;
+  color: #85c9ff;
+  font-size: 1.5em;
 }
 
 #square-topLeft {
@@ -200,10 +205,49 @@ body {
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  font-size: 1em;
+  color: #787bd7;
 }
-
+.css-button-sliding-to-bottom--green {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  background: #f3faff;
+  overflow: hidden;
+  border: 2px solid #9093fe;
+  color: #9093fe;
+}
+.css-button-sliding-to-bottom--green:hover {
+  color: #fff;
+}
+.css-button-sliding-to-bottom--green:hover:after {
+  height: 100%;
+}
+.css-button-sliding-to-bottom--green:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  background: #9093fe;
+}
 #input-name {
-  width: 7rem;
+  width: 5rem;
+  background: #f3faff;
+  border: 1px solid #9093fe;
+  border-radius: 4px;
 }
 
 input {
@@ -218,16 +262,53 @@ input {
   margin-left: auto;
   margin-right: auto;
   margin-top: -48px;
-  background: palegoldenrod;
+  background: #faff61;
   border-radius: 8px;
   padding: 1em;
   display: none;
   text-align: center;
   width: 10rem;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
 #btn-restart {
   display: none;
   margin-top: 3em;
   align-self: center;
+}
+
+#marker-select {
+  margin: 1.8em 0;
+  color: #85c9ff;
+  font-size: 1.2em;
+}
+
+.markSelector {
+  cursor: pointer;
+  padding: 0.8em 1em;
+  margin: 0 0.5em;
+  transition: all 1s;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  background: #f3faff;
+}
+
+.markSelector:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.selected {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  font-size: 1.1em;
+  cursor: pointer;
+  padding: 0.8em 1em;
+  margin: 0 0.5em;
+  transition: all 1s;
+  background: #f3faff;
+}
+
+.unselected {
+  font-size: 0.9em;
 }

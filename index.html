@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section id="main-cont">
@@ -38,22 +44,41 @@
       </div>
     </section>
     <section id="game-start">
-      <h1>Welcome! Enter your name and choose a marker.</h1>
+      <h1>
+        Welcome! <br />
+        Enter your name and choose a marker.
+      </h1>
       <form>
         <input type="text" placeholder="Enter name:" id="input-name" />
-        <div>
+        <!-- <div>
           <label for="x">X: </label>
           <input type="radio" id="input-markerX" name="marker" value="x" />
           <label for="o">O: </label>
           <input type="radio" id="input-markerO" name="marker" value="o" />
+        </div> -->
+        <div id="marker-select">
+          <span class="markSelector" id="selectX">X</span>
+          <span class="markSelector" id="selectO">O</span>
         </div>
-        <button type="button" id="btn-start">Play!</button>
+        <button
+          type="button"
+          class="css-button-sliding-to-bottom--green"
+          id="btn-start"
+        >
+          Play!
+        </button>
       </form>
     </section>
     <section id="game-end">
       <span id="game-end-span"></span>
     </section>
-    <button id="btn-restart" type="button">Restart Game</button>
+    <button
+      id="btn-restart"
+      class="css-button-sliding-to-bottom--green"
+      type="button"
+    >
+      Restart Game
+    </button>
     <script src="app.js"></script>
   </body>
 </html>
