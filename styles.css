@@ -132,6 +132,8 @@ html {
 body {
   font-size: 2em;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Game Board  */
@@ -206,4 +208,26 @@ body {
 
 input {
   margin-top: 1.5em;
+}
+
+#game-end {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -48px;
+  background: palegoldenrod;
+  border-radius: 8px;
+  padding: 1em;
+  display: none;
+  text-align: center;
+  width: 10rem;
+}
+
+#btn-restart {
+  display: none;
+  margin-top: 3em;
+  align-self: center;
 }
