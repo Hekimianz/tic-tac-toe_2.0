@@ -114,57 +114,200 @@ const game = (() => {
     const xWins = function () {
       if (player1.marker === "X") {
         domElems.gameEndSpan.innerText = `${player1.name} Wins!`;
-        domElems.gameEnd.style.background = "#FAFF61";
+        domElems.gameEnd.style.background = "#faff61be";
       } else {
         domElems.gameEndSpan.innerText = "You lose!";
-        domElems.gameEnd.style.background = "#FFDEAB";
+        domElems.gameEnd.style.background = "#FFDEABbe";
       }
-      domElems.gameEnd.style.display = "initial";
+      domElems.gameEnd.style.display = "flex";
       delEventFromNodes("click", domElems.squares, check);
     };
     const oWins = function () {
       if (player1.marker === "O") {
         domElems.gameEndSpan.innerText = `${player1.name} Wins!`;
-        domElems.gameEnd.style.background = "#FAFF61";
+        domElems.gameEnd.style.background = "#faff61be";
       } else {
         domElems.gameEndSpan.innerText = "You lose!";
-        domElems.gameEnd.style.background = "#FFDEAB";
+        domElems.gameEnd.style.background = "#FFDEABbe";
       }
-      domElems.gameEnd.style.display = "initial";
+      domElems.gameEnd.style.display = "flex";
     };
     // X Wins Conditions
-    if (topRow === threeX || midRow === threeX || botRow === threeX) {
+    if (topRow === threeX) {
       xWins();
+      domElems.squares[0].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[1].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[2].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+    } else if (midRow === threeX) {
+      xWins();
+      domElems.squares[3].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[4].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[5].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+    } else if (botRow === threeX) {
+      xWins();
+      domElems.squares[6].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[7].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[8].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
     } else if (
-      (gameBoard[0] === "X" && gameBoard[3] === "X" && gameBoard[6] === "X") ||
-      (gameBoard[1] === "X" && gameBoard[4] === "X" && gameBoard[7] === "X") ||
-      (gameBoard[2] === "X" && gameBoard[5] === "X" && gameBoard[8] === "X")
+      gameBoard[0] === "X" &&
+      gameBoard[3] === "X" &&
+      gameBoard[6] === "X"
     ) {
       xWins();
+      domElems.squares[0].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[3].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[6].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
     } else if (
-      (gameBoard[2] === "X" && gameBoard[4] === "X" && gameBoard[6] === "X") ||
-      (gameBoard[0] === "X" && gameBoard[4] === "X" && gameBoard[8] === "X")
+      gameBoard[1] === "X" &&
+      gameBoard[4] === "X" &&
+      gameBoard[7] === "X"
     ) {
       xWins();
+      domElems.squares[1].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[4].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[7].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+    } else if (
+      gameBoard[2] === "X" &&
+      gameBoard[5] === "X" &&
+      gameBoard[8] === "X"
+    ) {
+      xWins();
+      domElems.squares[2].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[5].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[8].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+    } else if (
+      gameBoard[2] === "X" &&
+      gameBoard[4] === "X" &&
+      gameBoard[6] === "X"
+    ) {
+      xWins();
+      domElems.squares[2].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[4].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[6].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+    } else if (
+      gameBoard[0] === "X" &&
+      gameBoard[4] === "X" &&
+      gameBoard[8] === "X"
+    ) {
+      xWins();
+      domElems.squares[0].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[4].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[8].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
     }
     // O Wins Conditions
-    else if (topRow === threeO || midRow === threeO || botRow === threeO) {
+    else if (topRow === threeO) {
       oWins();
+      domElems.squares[0].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[1].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[2].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+    } else if (midRow === threeO) {
+      oWins();
+      domElems.squares[3].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[4].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[5].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+    } else if (botRow === threeO) {
+      oWins();
+      domElems.squares[6].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[7].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[8].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
     } else if (
-      (gameBoard[0] === "O" && gameBoard[3] === "O" && gameBoard[6] === "O") ||
-      (gameBoard[1] === "O" && gameBoard[4] === "O" && gameBoard[7] === "O") ||
-      (gameBoard[2] === "O" && gameBoard[5] === "O" && gameBoard[8] === "O")
+      gameBoard[0] === "O" &&
+      gameBoard[3] === "O" &&
+      gameBoard[6] === "O"
     ) {
       oWins();
+      domElems.squares[0].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[3].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[6].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
     } else if (
-      (gameBoard[2] === "O" && gameBoard[4] === "O" && gameBoard[6] === "O") ||
-      (gameBoard[0] === "O" && gameBoard[4] === "O" && gameBoard[8] === "O")
+      gameBoard[1] === "O" &&
+      gameBoard[4] === "O" &&
+      gameBoard[7] === "O"
     ) {
       oWins();
+      domElems.squares[1].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[4].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[7].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+    } else if (
+      gameBoard[2] === "O" &&
+      gameBoard[5] === "O" &&
+      gameBoard[8] === "O"
+    ) {
+      oWins();
+      domElems.squares[2].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[5].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[8].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+    } else if (
+      gameBoard[2] === "O" &&
+      gameBoard[4] === "O" &&
+      gameBoard[6] === "O"
+    ) {
+      oWins();
+      domElems.squares[2].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[4].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[6].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+    } else if (
+      gameBoard[0] === "O" &&
+      gameBoard[4] === "O" &&
+      gameBoard[8] === "O"
+    ) {
+      oWins();
+      domElems.squares[0].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[4].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
+      domElems.squares[8].style.boxShadow =
+        "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
     }
     domElems.btnRestart.addEventListener("click", () => {
       for (let i = 0; i < gameBoard.length; i += 1) {
         domElems.markers[i].innerText = " ";
+        domElems.squares[i].style.boxShadow = "none";
         gameBoard[i] = " ";
       }
       domElems.gameEndSpan.innerText = "";

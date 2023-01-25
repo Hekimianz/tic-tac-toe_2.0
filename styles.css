@@ -141,7 +141,7 @@ body {
 
 /* Game Board  */
 #main-cont {
-  padding-top: 50%;
+  padding-top: 25%;
   display: none;
   grid-template-columns: repeat(3, 1fr);
   height: 50%;
@@ -155,9 +155,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 130px;
   color: #85c9ff;
   font-size: 1.5em;
+  min-height: 126px;
+  max-height: 180px;
 }
 
 #square-topLeft {
@@ -262,7 +263,7 @@ input {
   margin-left: auto;
   margin-right: auto;
   margin-top: -48px;
-  background: #faff61;
+  background: #faff61be;
   border-radius: 8px;
   padding: 1em;
   display: none;
@@ -311,4 +312,132 @@ input {
 
 .unselected {
   font-size: 0.9em;
+}
+
+h1 {
+  background: #f3faff;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* Media queries */
+@media screen and (min-width: 414px) {
+  #main-cont {
+    padding-top: 25%;
+  }
+
+  #btn-restart {
+    margin-top: 6em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #main-cont {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
+
+  .game-square {
+    font-size: 2em;
+  }
+
+  #game-end {
+    padding: 1em 3em;
+    display: none;
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .markSelector {
+    font-size: 1.2em;
+  }
+
+  .selected {
+    font-size: 1.3em;
+  }
+
+  h1 {
+    font-size: 1.2em;
+  }
+
+  .css-button-sliding-to-bottom--green {
+    width: 5em;
+    font-size: 0.8em;
+    height: 1.8em;
+  }
+
+  #input-name {
+    height: 1.5em;
+    width: fit-content;
+  }
+
+  #game-end {
+    top: 10%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #main-cont {
+    padding-top: 5%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #main-cont {
+    padding-top: 5%;
+    width: 50%;
+  }
+
+  .game-square {
+    border: 2px solid #9093fe;
+  }
+
+  #btn-restart {
+    margin-top: 8em;
+  }
+
+  #marker-select {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #main-cont {
+    padding-top: 8%;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .game-square {
+    font-size: 2em;
+  }
+
+  #main-cont {
+    padding-top: 5%;
+    width: 30%;
+  }
+
+  .markSelector {
+    font-size: 1.4em;
+  }
+
+  .selected {
+    font-size: 1.5em;
+  }
+
+  h1 {
+    margin-bottom: 1em;
+    font-size: 1.4em;
+  }
+  #marker-select {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
 }
