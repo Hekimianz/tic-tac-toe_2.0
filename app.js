@@ -92,21 +92,29 @@ const game = (() => {
   });
 
   const squaresArr = Array.prototype.slice.call(domElems.squares);
+  function getOccurrence(array, value) {
+    return array.filter((v) => v === value).length;
+  }
   addEventToNodes("click", domElems.squares, function check() {
-    // check if square is already taken
     if (gameBoard[squaresArr.indexOf(this)] === " ") {
       gameBoard[squaresArr.indexOf(this)] = currentPlayer.marker;
-      // checks whos turn it is
-      switch (currentPlayer) {
-        case player1:
-          currentPlayer = player2;
-          break;
-        case player2:
+      currentPlayer = player2;
+
+      const computerMove = function () {
+        const randNum = Math.floor(Math.random() * 8 + 1);
+        if (gameBoard[randNum] === " ") {
+          gameBoard[randNum] = currentPlayer.marker;
           currentPlayer = player1;
-          break;
-        default:
-          break;
-      }
+        } else if (
+          gameBoard[randNum] !== " " &&
+          getOccurrence(gameBoard, " ") > 1
+        ) {
+          computerMove();
+        }
+      };
+
+      computerMove();
+
       displayBoard();
     }
     // check if gameover
@@ -149,7 +157,8 @@ const game = (() => {
         "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
       domElems.squares[2].style.boxShadow =
         "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
-    } else if (midRow === threeX) {
+    }
+    if (midRow === threeX) {
       xWins();
       domElems.squares[3].style.boxShadow =
         "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
@@ -312,6 +321,7 @@ const game = (() => {
       domElems.squares[8].style.boxShadow =
         "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset";
     }
+
     domElems.btnRestart.addEventListener("click", () => {
       for (let i = 0; i < gameBoard.length; i += 1) {
         domElems.markers[i].innerText = " ";
