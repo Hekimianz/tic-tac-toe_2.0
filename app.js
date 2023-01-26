@@ -10,6 +10,8 @@ const domElems = (() => {
   const btnRestart = document.getElementById("btn-restart");
   const selectorX = document.getElementById("selectX");
   const selectorO = document.getElementById("selectO");
+  const btnChangeMrk = document.getElementById("btn-changeMrk");
+  const btnRestartChangeCont = document.getElementById("restartChangeCont");
   return {
     board,
     squares,
@@ -22,6 +24,8 @@ const domElems = (() => {
     btnRestart,
     selectorO,
     selectorX,
+    btnChangeMrk,
+    btnRestartChangeCont,
   };
 })();
 const addEventToNodes = (evn, nodelst, func) => {
@@ -74,7 +78,7 @@ const game = (() => {
   domElems.btnStart.addEventListener("click", () => {
     if (domElems.inputName.value !== "" && selectedMarker !== undefined) {
       domElems.board.style.display = "grid";
-      domElems.btnRestart.style.display = "initial";
+      domElems.btnRestartChangeCont.style.display = "flex";
       domElems.form.style.display = "none";
       if (selectedMarker === "O") {
         player1 = Player(domElems.inputName.value, "O");
@@ -318,6 +322,21 @@ const game = (() => {
       domElems.gameEnd.style.display = "none";
       addEventToNodes("click", domElems.squares, check);
       currentPlayer = player1;
+    });
+
+    domElems.btnChangeMrk.addEventListener("click", () => {
+      for (let i = 0; i < gameBoard.length; i += 1) {
+        domElems.markers[i].innerText = " ";
+        domElems.squares[i].style.boxShadow = "none";
+        gameBoard[i] = " ";
+      }
+      domElems.gameEndSpan.innerText = "";
+      domElems.gameEnd.style.display = "none";
+      addEventToNodes("click", domElems.squares, check);
+      currentPlayer = player1;
+      domElems.board.style.display = "none";
+      domElems.form.style.display = "flex";
+      domElems.btnRestartChangeCont.style.display = "none";
     });
   });
 })();

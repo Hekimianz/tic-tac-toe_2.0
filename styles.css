@@ -275,9 +275,19 @@ input {
 }
 
 #btn-restart {
-  display: none;
-  margin-top: 3em;
   align-self: center;
+}
+
+#btn-changeMrk {
+  align-self: center;
+  width: fit-content;
+}
+
+#restartChangeCont {
+  display: none;
+  gap: 1em;
+  justify-content: center;
+  margin-top: 3em;
 }
 
 #marker-select {
@@ -322,14 +332,29 @@ h1 {
   margin: 0 auto;
 }
 
+footer {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 0.5em;
+  color: #9093fe;
+  transition: 1s all;
+}
+
+footer:hover {
+  transform: scale(1.2);
+  color: #85c9ff;
+}
+
+a {
+  transition: 1s all;
+  text-decoration: none;
+  color: #9093fe;
+}
+
 /* Media queries */
 @media screen and (min-width: 414px) {
   #main-cont {
     padding-top: 25%;
-  }
-
-  #btn-restart {
-    margin-top: 6em;
   }
 }
 
@@ -387,6 +412,10 @@ h1 {
   #main-cont {
     padding-top: 5%;
   }
+
+  footer {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -397,10 +426,6 @@ h1 {
 
   .game-square {
     border: 2px solid #9093fe;
-  }
-
-  #btn-restart {
-    margin-top: 8em;
   }
 
   #marker-select {
